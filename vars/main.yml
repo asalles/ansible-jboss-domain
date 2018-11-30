@@ -1,0 +1,40 @@
+################################
+# COMMON CONTROLLER VARIABLES ##
+################################
+jboss_eap_user: jboss
+jboss_eap_home_path: /opt/jboss-eap
+jboss_repo: "http://vpn.cautivatech.com/sw/jboss"
+jboss_eap_installer_file: jboss-eap-7.1.0-installer.jar
+jboss_eap_last_patch: [ "jboss-eap-7.1.5-patch.zip" ]
+jboss_eap_user_home: /home/jboss
+java_version: 1.8
+jboss_service_name: jboss-eap
+jboss_eap_version: 7.1.0
+tmp_directory: /home/jboss/tmp
+jboss_binding_interface: eth0
+jboss_binding_management_interface: eth0
+
+user_name_hc_authentication: user
+user_pass_hc_authentication: cautiva
+
+jboss_eap_connection_user: connector
+jboss_eap_connection_password: cautiva
+
+################################
+# DOMAIN CONTROLLER VARIABLES ##
+################################
+domain_controller_name: dc-server
+domain_master_address: jboss1.cautivatech.com      # I M P O R T A N T E
+
+jboss_eap_admin_user: admin
+jboss_eap_admin_password: Cautiva1.
+
+new_profiles: ['perfilHA|ha']
+new_groups_grupo: "grupo1"
+new_groups_profile: "perfilHA"
+new_groups_sockets: "perfilHA-ha-sockets"
+
+#############################
+# HOST CONTROLLER VARIABLES #
+#############################
+host_controller_portoffset: "100"       # http://server1:8180/

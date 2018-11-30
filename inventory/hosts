@@ -1,0 +1,12 @@
+[domaincontroller]
+jboss1.cautivatech.com    ansible_ssh_host=10.199.101.211
+
+[hostscontrollers]
+jboss2.cautivatech.com    ansible_ssh_host=10.199.101.212
+jboss3.cautivatech.com    ansible_ssh_host=10.199.101.213
+
+[all:vars]
+ansible_connection=ssh
+ansible_ssh_user=root
+ansible_ssh_pass=cautiva
+#ansible_ssh_private_key_file=/home/asalles/.ssh/id_rsa.pub

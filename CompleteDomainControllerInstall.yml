@@ -1,0 +1,60 @@
+---
+# This playbook
+
+# preparacion ------------------------
+- hosts: all
+  remote_user: root
+
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - initial-tasks
+
+# domain install --------------------
+- hosts: domaincontroller
+  remote_user: root
+
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - initial-tasks
+    - create-jboss-user
+    - jdk-install
+    - eap-install-dependencies
+    - eap-install-domain-from-jar
+    - eap-domain-controller-configuration
+    - eap-domain-service-configuration-rhel
+    - eap-domain-controller-change-name
+    - eap-domain-controller-remove-default-servers-and-groups
+    - eap-domain-controller-create-new-profiles
+    - eap-domain-controller-reload
+    - eap-domain-controller-create-new-groups
+    - eap-domain-controller-create-user-connection
+    - eap-apply-patches
+    - eap-domain-firewalld
+
+
+# host install ----------------------
+- hosts: hostscontrollers
+  remote_user: root
+
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - create-jboss-user
+    - jdk-install
+    - eap-install-dependencies
+    - eap-install-domain-from-jar
+    - eap-domain-service-configuration-rhel
+    - eap-host-controller-configuration
+    - eap-host-controller-remove-default-servers-and-groups
+    - eap-domain-controller-reload
+    - eap-host-controller-change-name
+    - eap-host-controller-conection
+    - eap-host-controller-create-server
+    - eap-apply-patches
+    - eap-host-firewalld
+    - final-tasks

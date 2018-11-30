@@ -1,0 +1,9 @@
+---
+- hosts: hostscontrollers
+  remote_user: root
+
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - final-tasks
