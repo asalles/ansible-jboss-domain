@@ -1,5 +1,5 @@
-ansible-jboss-domain-ng
-=======================
+ansible-jboss-domain
+====================
 
 Ansible JBoss EAP 7.1 Domain Playbook
 
