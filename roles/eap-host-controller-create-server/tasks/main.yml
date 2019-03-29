@@ -1,3 +1,11 @@
 ---
+#- name: Creando servidor (sleep random <20 sec)
+#  script: create-server.sh {{ jboss_eap_home_path }} {{ inventory_hostname }} {{ hostvars[inventory_hostname]['ansible_'+jboss_binding_interface].ipv4.address }} {{new_groups_grupo}} {{host_controller_portoffset}}
+
 - name: Creando servidor (sleep random <20 sec)
   script: create-server.sh {{ jboss_eap_home_path }} {{ inventory_hostname }} {{ hostvars[inventory_hostname]['ansible_'+jboss_binding_interface].ipv4.address }} {{new_groups_grupo}} {{host_controller_portoffset}}
+  retries: 3
+  register: task_result
+  until: task_result.rc == 0
+  ignore_errors: yes
+  delay: 10
